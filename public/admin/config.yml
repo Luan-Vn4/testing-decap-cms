@@ -1,22 +1,17 @@
 backend:
-  name: test-repo
-  branch: main # Branch to update (optional; defaults to master)
-media_folder: public/img
-public_folder: img
+  name: git-gateway
+  branch: main
+  repo: Luan-Vn4/decap-cms-repository
+  #base_url: https://234a-190-115-106-169.ngrok-free.app
+media_folder: public/images
+publish_mode: editorial_workflow
 collections:
   - name: "pages"
     label: "Pages"
-    files:
-      - label: "Home"
-        name: "home"
-        file: "content/home.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string"}
-          - { label: "Publish Date", name: "date", widget: "datetime" }
-          - { label: "Body", name: "body", widget: "markdown"}
-          - label: 'Cats'
-            name: "cats"
-            widget: list
-            fields:
-              - { label: "Name", name: "name", widget: "string"}
-              - { label: "Description", name: "description", widget: "text"}
+    create: true
+    folder: "content/pages"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
